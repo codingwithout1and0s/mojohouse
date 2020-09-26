@@ -136,41 +136,58 @@ class UI {
         cartDOM.classList.remove('showCart');
     }
     cartLogic() {
-        //Clear Cart
-        clearCartBtn.addEventListener('click', () => {
-            this.clearCart();
+        clearCartBtn.addEventListener("click", () => {
+          this.clearCart();
         });
-
-        cartContent.addEventListener('click', (event) => {
-            If (event.target.classList.contains("remove-item")) {
-                let removeItem = event.target;
-                let id = removeItem.dataset.id;
-                cartContent.removeChild(removeItem.parentElement.parentElement);
-                this.removeItem(id);
-            } else if (event.target.classList.contains("fa-chevron-up")) {
-                let addAmount = event.target;
-                let id = add.Amount.dataset.id;
-                let tempItem = cart.find(item => item.id === id);
-                tempItem.amount = tempItem.amount + 1;
-                Storage.saveCart(cart);
-                this.setCartValues(cart);
-                addAmount.nextElementSibling.innerText = tempItem.amount;
-            } else if (event.target.classList.contains("fa-chevron-down")) {
-                let lowerAmount = event.target;
-                let id = lowerAmount.dataset.id;
-                let tempItem = cart.find(item => item.id === id);
-                tempItem.amount = tempItem.amount - 1;
-                if (tempItem.amount > 0) {
-                    Storage.saveCart(cart);
-                    this.setCartValues(cart);
-                    lowerAmount.previousElementSibling.innerText = tempItem.amount;
-                } else {
-                    cartContent.removeChild(lowerAmount.parentElement.parentElement);
-                    this.removeItem(id);
+        
+        cartContent.addEventListener("click", event => {
+          if (event.target.classList.contains("remove-item")) {
+            let removeItem = event.target;
+            let id = removeItem.dataset.id;
+            cart = cart.filter(item => item.id !== id);
+            this.setCartValues(cart);
+            Storage.saveCart(cart);
+            cartContent.removeChild(removeItem.parentElement.parentElement);
+            const buttons = [...document.querySelectorAll(".bag-btn")];
+            buttons.forEach(button => {
+              if (parseInt(button.dataset.id) === id) {
+                button.disabled = false;
+                button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to bag`;
+              }
+            });
+          } else if (event.target.classList.contains("fa-chevron-up")) {
+            let addAmount = event.target;
+            let id = addAmount.dataset.id;
+            let tempItem = cart.find(item => item.id === id);
+            tempItem.amount = tempItem.amount + 1;
+            Storage.saveCart(cart);
+            this.setCartValues(cart);
+            addAmount.nextElementSibling.innerText = tempItem.amount;
+          } else if (event.target.classList.contains("fa-chevron-down")) {
+            let lowerAmount = event.target;
+            let id = lowerAmount.dataset.id;
+            let tempItem = cart.find(item => item.id === id);
+            tempItem.amount = tempItem.amount - 1;
+            if (tempItem.amount > 0) {
+              Storage.saveCart(cart);
+              this.setCartValues(cart);
+              lowerAmount.previousElementSibling.innerText = tempItem.amount;
+            } else {
+              cart = cart.filter(item => item.id !== id);
+              this.setCartValues(cart);
+              Storage.saveCart(cart);
+              cartContent.removeChild(lowerAmount.parentElement.parentElement);
+              const buttons = [...document.querySelectorAll(".bag-btn")];
+              buttons.forEach(button => {
+                if (parseInt(button.dataset.id) === id) {
+                  button.disabled = false;
+                  button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to bag`;
                 }
+              });
             }
+          }
         });
-    }
+      }
     clearCart() {
         let cartItems = cart.map(item => item.id);
         console.log(cartItems);
