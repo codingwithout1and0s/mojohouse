@@ -7,7 +7,17 @@ const cartBtn = document.querySelector('.cart-btn'),
     cartItems = document.querySelector('.cart-items'),
     cartTotal = document.querySelector('.cart-total'),
     cartContent = document.querySelector('.cart-content'),
-    productsDOM = document.querySelector('.products-center');
+    productsDOM = document.querySelector('.products-center'),
+    navIcon = document.querySelector('.nav-icon'),
+    hamburger = document.getElementById('hamburger');
+
+navIcon.addEventListener('click', () => {
+    if (hamburger.style.display === "block") {
+        hamburger.style.display = "none";
+    } else {
+        hamburger.style.display = "block";
+    }
+});
 
 //Main cart
 let cart = []

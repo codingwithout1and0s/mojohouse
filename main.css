@@ -86,6 +86,12 @@ body {
   transition: var(--mainTransition);
   cursor: pointer;
 }
+.banner-btn a:active,
+.banner-btn a:visited,
+.banner-btn a:link {
+  text-decoration: none;
+  color: var(--mainWhite);
+}
 .banner-btn:hover {
   background: transparent;
   color: var(--primaryColor);
@@ -257,5 +263,40 @@ body {
   text-transform: capitalize;
   margin-bottom: 1rem;
 }
-
 /* --------------- End of Cart ---------------- */
+/* --------------- Footer --------------------- */
+.footer-center {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+}
+/* ------------- End of Footer ---------------- */
+/* --------------- Hamburger ------------------ */
+.hamburger {
+  height: 50px;
+  width: 100%;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 60px;
+  background: rgba(231, 226, 221, 0.3);
+}
+.hamburger-nav {
+  color: var(--mainBlack);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.hamburger-nav a:link,
+.hamburger-nav a:hover,
+.hamburger-nav a:visited {
+  text-decoration: none;
+  color: var(--mainBlack);
+}
+
+/* ------------ End of Hamburger ------------- */
