@@ -90,7 +90,7 @@ body {
 .banner-btn a:visited,
 .banner-btn a:link {
   text-decoration: none;
-  color: var(--mainWhite);
+  color: var(--mainBlack);
 }
 .banner-btn:hover {
   background: transparent;
@@ -265,6 +265,11 @@ body {
 }
 /* --------------- End of Cart ---------------- */
 /* --------------- Footer --------------------- */
+footer {
+  width: 100%;
+  height: 500px;
+  background: var(--mainWhite);
+}
 .footer-center {
   width: 100%;
   max-width: 1170px;
@@ -287,10 +292,11 @@ body {
 }
 .hamburger-nav {
   color: var(--mainBlack);
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  text-transform: uppercase;
 }
 .hamburger-nav a:link,
 .hamburger-nav a:hover,
@@ -298,5 +304,19 @@ body {
   text-decoration: none;
   color: var(--mainBlack);
 }
-
 /* ------------ End of Hamburger ------------- */
+hr {
+  color: #000;
+  background: #000;
+  width: 50%;
+}
+.newsletter {
+  width: 100%;
+  padding: 10px;
+}
+.subscribe {
+  padding: 15px 5px;
+  background: var(--mainBlack);
+  color: var(--mainWhite);
+  border: none;
+}

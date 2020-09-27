@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOJO Home - Checkout</title>
+    <script src="https://kit.fontawesome.com/b12d87f59e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+
+<!-- nav bar -->
+<nav class="navbar">
+    <div class="navbar-center">
+        <span class="nav-icon">
+            <i class="fas fa-bars"></i>
+        </span>
+        <img src="./images/mojo-house.png" alt="MOJO Home">
+        <div class="cart-btn">
+            <span class="nav-icon">
+                <i class="fas fa-cart-plus"></i>
+            </span>
+            <div class="cart-items">0</div>
+        </div>
+    </div>
+</nav>
+
+<div class="hamburger" id="hamburger">
+    <div class="hamburger-nav">
+        <a href="#products">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+</div>
+
+<!-- cart -->
+<div class="cart-overlay">
+    <div class="cart">
+        <span class="close-cart">
+            <i class="fas fa-window-close"></i>
+        </span>
+        <h2>Your Cart</h2>
+        <div class="cart-content">
+            <!-- cart items -->
+        </div>
+        <div class="cart-footer">
+            <h3>Your Total: $<span class="cart-total"></span></h3>
+            <button class="clear-cart banner-btn">Clear Cart</button>
+            <button class="banner-btn"><a href="checkout">Checkout</a></button>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<footer class="navbar">
+    <div class="footer-center">
+        <img src="./images/logo.svg" alt="MOJO Home">
+    </div>
+</footer>
+<!-- end of footer -->
+
+<script src="app.js"></script>
+</body>
+</html>

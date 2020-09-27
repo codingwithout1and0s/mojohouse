@@ -11,6 +11,8 @@ const cartBtn = document.querySelector('.cart-btn'),
     navIcon = document.querySelector('.nav-icon'),
     hamburger = document.getElementById('hamburger');
 
+
+//Hamburger
 navIcon.addEventListener('click', () => {
     if (hamburger.style.display === "block") {
         hamburger.style.display = "none";
@@ -241,6 +243,10 @@ class Storage {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    //Hamburger is invisible when site loads
+    hamburger.style.display = "none";
+
     const ui = new UI();
     const products = new Products();
 
